@@ -2,9 +2,10 @@ objects = [[] for _ in range(4)]
 
 
 def add_object(o, depth = 0):
-    if o == None:
-        return
     objects[depth].append(o)
+
+def add_objects(ol, depth = 0):
+    objects[depth] += ol
 
 
 def update():
@@ -24,10 +25,11 @@ def remove_object(o):
         if o in layer:
             layer.remove(o)
             return
-
     raise ValueError('Cannot delete non existing object')
 
 
 def clear():
-    for layer in objects:
-        layer.clear()
+    global objects
+
+    objects = [[] for _ in range(4)]
+
