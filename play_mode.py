@@ -5,6 +5,7 @@ import game_world
 from bird import Bird
 from grass import Grass
 from boy import Boy
+from random import randint 
 
 # boy = None
 
@@ -20,13 +21,13 @@ def handle_events():
 
 def init():
     global grass
-    global bird
 
     grass = Grass()
     game_world.add_object(grass, 0)
 
-    bird = Bird()
-    game_world.add_object(bird, 1)
+    for i in range(0,10):
+        bird = Bird(randint(100,1700),randint(100,600))
+        game_world.add_object(bird, 1)
 
 
 def finish():
